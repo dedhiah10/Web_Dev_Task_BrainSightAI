@@ -1,0 +1,30 @@
+<div class="app-form">
+    <div class="firstElem"></div>
+    <div class="pageContainer">
+        <div *ngFor="let field of prevApplications">
+            <div [ngClass]="(field.applicationStatus.toLowerCase().includes('pending')) ? 'pendingClass': (field.applicationStatus.toLowerCase().includes('failure')) ? 'failureClass':'successClass'">
+                <div class="applicationInfo">
+                    <u>Status:</u>&nbsp;&nbsp;{{field.applicationStatus}}<br/><br/><br/>
+                    <u>Reason:</u>&nbsp;&nbsp;{{field.comment}}<br/>
+                    <u>Applied On:</u>&nbsp;&nbsp;{{field.timeApplied | date:'medium' }} <br/>
+                    <u>Assigned to:</u>&nbsp;&nbsp;{{field.applicationAssignedTo}} <br/><br/>
+                    <div class="fieldName leftText">Progress:</div>
+                    <div class="progressBar">
+                        <div class="progress progressCounter" style="width:{{50 * field.applicationPhase}}%;">
+                                {{50 * field.applicationPhase}}%
+                        </div>
+                    </div><br/>
+                    <u>Form Details:</u><br/>
+                    <div class="fieldName leftText"><u>downloads:</u></div>
+                    <ul *ngFor="let variable of field.formAttached.downloadFields | keyvalue">
+                        <li *ngIf="variable.value">{{variable.key}}</li>
+                    </ul><br/>
+                    <div class="fieldName leftText"><u>uploads:</u></div>
+                    <ul *ngFor="let variable of field.formAttached.uploadFields | keyvalue">
+                        <li *ngIf="variable.value">{{variable.key}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

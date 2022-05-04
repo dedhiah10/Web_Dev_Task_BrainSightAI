@@ -1,0 +1,296 @@
+/* used calc(), var(), animation, background-image, linear-gradient(), etc. */
+
+input:focus, input:active, input:enabled {outline: none;}
+
+.textInput::placeholder { color: var(--indianWite); }
+
+.textInput, .textInput:active, .textInput:focus, .textInput:enabled {   
+    padding: 7px 5px; 
+    border-radius: 7px; 
+    color: var(--indianWite); 
+    background-color: var(--indianNavy); 
+    border: 2px solid var(--indianWite);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    background-repeat: space;
+    color: var(--color);
+    transition: 0.3s;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: linear-gradient(180deg,
+            var(--indianSaffron) 0%,
+            var(--indianWite) 35%,
+            var(--indianWite) 65%,
+            var(--indianGreen) 100%);
+}
+
+:root {    
+    --indianWite: #fff;
+    --indianSaffron: #ff9933;
+    --indianGreen: #138808;
+    --indianNavy: #000080;
+}
+
+hr {
+    background-color: var(--indianWite);
+    height: 3px;
+}
+
+.navBar {
+    flex-wrap: wrap;
+    font-weight: bold;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
+}
+
+.navBarLink {
+    color: var(--indianWite);
+    background-color: var(--indianSaffron);
+    text-decoration: none;
+    padding: 10px 50px;
+    font-size: var(--elementFontSize1);
+}
+
+.navBarLink:hover {
+    color: var(--indianWite);
+    background-color: var(--indianNavy)
+}
+
+.navBarElemActive {
+    color: var(--indianWite);
+    background-color: var(--indianGreen)
+}
+
+.imgEmblem {
+    height: 100px;
+    padding: 5px;
+}
+
+.firstElem {
+    height: calc(var(--elementFontSize1) + 10px);
+}
+
+.logoText {
+    font-size: 50px;
+}
+
+.app-form {
+    color: var(--indianWite);
+    border: 3px solid var(--indianWite);
+    padding-top: 50px;
+    width: 85%;
+    margin: auto;
+    background-color: var(--indianNavy);
+}
+
+.fieldName, .pageContainer {
+    display: block;
+    font-size: var(--elementFontSize1);
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.pageContainer { width: 90%; color: black; padding: 20px auto 15px auto; }
+
+.formClass, .innerContainer {
+    width: 45%;
+    display: block;
+    font-size: var(--elementFontSize2);
+    padding: 7px 3vw 7px 3vw;
+    text-align: left;
+    margin: auto;
+}
+
+.formClass input {
+    height: 18px;
+    width: 18px;
+    margin-right: 10px;
+}
+
+.progressBar {
+    margin: 8px auto;
+    width: 90%; 
+    height: 36px; 
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+ul, li { list-style: none; }
+
+.progressCounter { font-size: 24px; text-align: left; vertical-align: middle;}
+
+.progress {
+    height: 30px;
+    background-image: linear-gradient(180deg,
+        var(--indianSaffron) 0%,
+        var(--indianWite) 35%,
+        var(--indianWite) 65%,
+        var(--indianGreen) 100%);
+}
+
+.leftText { text-align: left; }
+
+li { font-size: var(--elementFontSize2); }
+
+.pendingClass { background-color: gold;}
+.successClass { background-color: lawngreen; }
+.failureClass { background-color: tomato; }
+
+.pendingClass, .successClass, .failureClass { border-radius: 5px; padding: 15px 5px; margin: 3px auto; }
+
+.submitButton {
+    display: block;
+    margin: 36px auto;
+    text-align: center;
+    font-size: var(--elementFontSize1);
+    border: 3px solid var(--indianWite);
+    padding: 12px 25px;
+    border-radius: 8px;
+    color: var(--indianWite);
+    background-color: var(--indianNavy);
+    font-weight: bold;
+}
+
+.formInput {
+    font-size: var(--elementFontSize2);
+    display: block;
+    border: 2px solid var(--indianWite);
+    margin: 0px auto 35px auto;
+    border-radius: 8px;
+    width: 60%;
+    color: var(--indianWite);
+    background-color: var(--indianNavy);
+}
+
+#fileInput {
+    font-size: calc(var(--elementFontSize2) + 0.3vw);
+}
+
+.acceptMsg {
+    padding-left: 0px;
+    text-align: center;
+    font-size: var(--elementFontSize1);
+}
+
+#dropContainer {
+    height: 300px;
+    width: 100%;
+    text-align: center;
+    border: 2px solid var(--indianWite);
+}
+
+.submitButton:enabled:hover {
+    background-image: none;
+    color: black;
+    background-color: var(--indianSaffron);
+    cursor: pointer;
+    animation: myAnim 4s infinite;
+}
+
+.submitButton:enabled:active {
+    color: black;
+    background-image: linear-gradient(180deg,
+            var(--indianSaffron) 0%,
+            var(--indianWite) 35%,
+            var(--indianWite) 65%,
+            var(--indianGreen) 100%);
+    animation: none;
+    background-color: var(--indianNavy);
+}
+
+.submitButton:disabled {
+    cursor: no-drop;
+    background-color: cornflowerblue;
+}
+
+.footer { text-align: center; }
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+@keyframes myAnim {
+    0% {
+        background-color: var(--indianSaffron);
+    }
+
+    25% {
+        background-color: var(--indianWite);
+    }
+
+    50% {
+        background-color: var(--indianGreen);
+    }
+
+    75% {
+        background-color: var(--indianWite);
+    }
+
+    100% {
+        background-color: var(--indianSaffron);
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 648px) {
+    :root {
+        --elementFontSize1: 2.5vw;
+        --elementFontSize2: 1.8vw;
+    }
+}
+
+@media only screen and (min-width: 648px) {
+    :root {
+        --elementFontSize1: 2.1vw;
+        --elementFontSize2: 1.3vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root { --elementFontSize1: 20px; --elementFontSize2: 16px; }
+
+    .navBarLink { padding: 0; }
+
+    .app-form { width: 90%; }
+
+    .fieldName, .pageContainer {width: 95%;}
+
+    .formClass, .innerContainer { width: 90%; }
+}
+
+@media only screen and (max-width: 576px) and (min-width: 480px) {
+    :root { --elementFontSize1: 3.5vw; --elementFontSize2: 2.4vw; }
+
+    .navBarLink { padding: 0; }
+
+    .app-form { width: 90%; }
+
+    .fieldName, .pageContainer { width: 95%; }
+
+    .formClass, .innerContainer { width: 80%; }
+}
+
+.themeButton {
+    width: 50%;
+    padding: 10px 5px;
+    border-radius: 10px;
+    font-size: var(--elementFontSize2);
+    color: var(--indianWite);
+    background-color: var(--indianNavy);
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid var(--indianWite);
+}

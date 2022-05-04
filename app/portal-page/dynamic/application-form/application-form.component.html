@@ -1,0 +1,45 @@
+<form class="app-form" [formGroup]="upForm">
+    <div class="firstElem"></div>
+    <label class="fieldName">Select Documents to Download:</label><br />
+    <div formGroupName="downloadFields">
+        <label class="formClass" *ngFor="let field of downloadFields.value | keyvalue"><input type="checkbox" formControlName="{{field.key}}" required>{{field.key}}</label>
+    </div>
+    <br /><br /><hr /><br /><br />
+    <label class="fieldName">Select Documents to Upload:</label><br />
+    <div formGroupName="uploadFields">
+        <label class="formClass"*ngFor="let field of uploadFields.value | keyvalue"><input type="checkbox" formControlName="{{field.key}}"  required>{{field.key}}</label>
+    </div>
+    <br /><br /><hr /><br /><br />
+    <input type="file" id="fileInput" class="formInput" placeholder="choose or drag files here" (change)="handleFileInput($event)" accept=".jpg, .png, .zip">
+
+    <label class="formClass acceptMsg"><input type="checkbox" [(ngModel)]="formAccept" [ngModelOptions]="{standalone: true}">Accept conditions?
+        <div style="text-align: center;" *ngIf="formAccept">Yes</div>
+        <div *ngIf="!formAccept">No</div>
+    </label>
+
+    <button class="submitButton" (click)="formSubmit()" [disabled]="!formReady">Submit</button>
+</form>
+
+<!-- OLD_FORM 
+
+<form class="app-form">
+    <label class="fieldName">Select Documents to Download:</label><br />
+
+    <label *ngFor="let field of downloadFormFields" for="{{field}}" class="formClass">
+        <input type="checkbox" id="{{field}}" name="{{field}}" value="1">{{field}}
+    </label>
+    <br /><br />
+    <hr /><br /><br />
+    <label class="fieldName">Select Documents to Upload:</label><br />
+    <label *ngFor="let field of uploadFormFields" for="field" class="formClass">
+        <input type="checkbox" id="field" name="field" value="1">{{field}}
+    </label>
+    <br /><br />
+    <hr /><br /><br />
+    
+    <input type="file" id="fileInput" class="formInput" placeholder="choose or drag files here" (change)="handleFileInput($event)" accept=".jpg, .png, .zip">
+
+    <button class="submitButton" (click)="formSubmit()" [disabled]="formAccept">Submit</button>
+
+</form>
+-->

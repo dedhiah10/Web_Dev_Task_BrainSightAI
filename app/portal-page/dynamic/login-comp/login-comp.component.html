@@ -1,0 +1,18 @@
+<form class="app-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="firstElem"></div>
+    <button type="button" class="submitButton" (click)="loginWithTest()">One Click Login!</button>
+    <hr/>
+    <label class="fieldName">Login:</label><br/>
+    <label for="userName" class="fieldName">Enter Your Email</label><br/>
+    <input type="email" class="formClass textInput" name="userName" placeholder="Enter Email!" value="Harry@example.com" ngModel
+        required>
+    <br/>
+    <label for="pWord" class="fieldName">Enter Your Password</label><br/>
+    <input type="password" class="formClass textInput" name="pWord" placeholder="Enter Password!" value="12345678" ngModel
+        required minlength=8 maxlength=32>
+    <br/>
+    <label class="fieldName"><input class="formCheck" type="checkbox" name="signUp"
+        ngModel />&nbsp;&nbsp;Sign Up?</label>
+    <input type="submit" class="submitButton" title="Enter login credentials" [disabled]="!f.valid" value="Login">
+    <br/>
+</form>
